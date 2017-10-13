@@ -15,6 +15,7 @@ import BackLink from '../../components/BackLink';
 import PostCard from '../../components/PostCard';
 import Footer from '../../components/Footer';
 import Svg from '../../components/Svg';
+import Band from '../../components/Band';
 import BetaOffer from '../../components/BetaOffer';
 import page from './HomeContent';
 
@@ -104,21 +105,26 @@ class Home extends React.Component {
                 <Grid className='my-5 py-5'>
                   <Row>
                     <Col sm={12} className='text-center'>
-                      <Row className='justify-content-center'>
+                      <Row className='justify-content-center  mb-4'>
                         <Col className='col-8 col-md-6'>
                           <img src={headerImage}
                             className='c-drop-shadow-sm'/>
                         </Col>
                       </Row>
-                      <h1 className='display-4 display-md-1 mb-4 font-title'>
+                      <h1 className='display-4 display-md-1 font-title'>
                         {page.title}
                       </h1>
                     </Col>
                   </Row>
-                  <Row>
+                  <Row className='justify-content-center  mb-4'>
                     <Col sm={12} className='text-center font-sub-title'>
                       <h3 
                       dangerouslySetInnerHTML={{__html: page.subtitle}}/>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm={12} className='text-center'>
+                      <BetaOffer label='Try the beta for free'/>
                     </Col>
                   </Row>
                 </Grid>

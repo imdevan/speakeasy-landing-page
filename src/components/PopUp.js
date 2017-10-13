@@ -31,6 +31,7 @@ class PopUp extends React.Component {
 
     return (
       <div className={`${popUpContainerClass}`} onClick={this.closePopUp}>
+
         <Band sm={sm} md={md} size={0} >
           <ReactCSSTransitionGroup
             transitionName='fade-in-from-right'
@@ -43,6 +44,7 @@ class PopUp extends React.Component {
             </div>
           </ReactCSSTransitionGroup>
         </Band>
+
       </div>
     );
   }

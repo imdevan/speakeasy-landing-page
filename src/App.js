@@ -11,6 +11,7 @@ import Blog from './views/blog/Blog'
 import Post from './views/blog/post/Post'
 import Project from './views/projects/Project'
 import About from './views/about/About'
+import Thanks from './views/thanks/Thanks'
 import Pricing from './views/pricing/Pricing'
 import Error404 from './views/error/404'
 // Meta data
@@ -32,6 +33,7 @@ export default class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/pricing" component={Pricing} />
           <Route path="/about" component={About} />
+          <Route path="/thanks" component={Thanks} />
           <Route path='/blog/:postSlug' component={Post} />
           <Route path="/blog" component={Blog} />
           <Route path='/projects/:projectSlug' component={Project} />

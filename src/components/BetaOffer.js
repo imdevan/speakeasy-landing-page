@@ -4,6 +4,7 @@ import * as uiActions from '../actions/uiActions';
 import project from '../config/project';
 import PopUpButton from './PopUpButton';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router'
 
 import {
   Grid,
@@ -52,7 +53,9 @@ class BetaOffer extends Component {
   }
 
   handleSubmit(e) {
+    const {history} = this.props;
     e.preventDefault();
+    history.push('/thanks')
   }
 
   render() {
@@ -82,14 +85,6 @@ class BetaOffer extends Component {
             <form className='font-rubik' onSubmit={this.handleSubmit}>
               <FormGroup
                 controlId='formBasicText'>
-                {/*
-                <ControlLabel>First name</ControlLabel>
-                <FormControl
-                  type='text'
-                  value={this.state.name.value}
-                  placeholder='Elon'
-                  className='mb-3 font-rubik rounded-0 c-border'
-                /> */}
                 <ControlLabel>Email</ControlLabel>
                 <FormControl
                   type='email'
@@ -114,4 +109,4 @@ class BetaOffer extends Component {
   }
 }
 
-export default BetaOffer;
+export default withRouter(BetaOffer);

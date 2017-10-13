@@ -4,7 +4,7 @@ const project = {
   url: 'http://buyspeakeasy.com',
   prereleaseOffer: {
     title: 'Thanks for your interest in Speakeasy',
-    description: `Leave your email and I'll send you an email when we launch.`,
+    description: `Leave your email and I'll let you know when we launch.`,
   },
   timedOffer: {
     title: 'Thanks for your interest in Speakeasy',

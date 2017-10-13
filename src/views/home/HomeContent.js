@@ -14,7 +14,7 @@ const page = {
   subtitle: `Speech to text for your desktop.<br/>Finally.`,
   features: [{
     title: 'Speech to text on your desktop',
-    description: 'Just hit `~` and Speak Easy will automagically transcribe your speech.',
+    description: 'Press <code>~</code> and Speakeasy will automagically transcribe your speech.',
     image: macImage
   }, {
     title: 'Seriously, anywhere',

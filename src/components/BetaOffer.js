@@ -16,6 +16,16 @@ import {
 } from 'react-bootstrap';
 
 class BetaOffer extends Component {
+  static propTypes = {
+    label: PropTypes.string,
+    className: PropTypes.string
+  };
+
+  static defaultProps = {
+    label: 'Free during beta',
+    className: '',
+  };
+  
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -26,16 +36,24 @@ class BetaOffer extends Component {
         value: ''
       }
     };
-  }
-  static propTypes = {
-    label: PropTypes.string,
-    className: PropTypes.string
-  };
 
-  static defaultProps = {
-    label: 'Free during beta',
-    className: '',
-  };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+
+  handleChange(e) {
+    console.log(e);
+    this.setState({
+      email: {
+        value: e.target.value
+      }
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+  }
 
   render() {
     const { className, label } = this.props;
@@ -61,24 +79,24 @@ class BetaOffer extends Component {
         </Row>
         <Row>
           <Col sm={12}>
-            <form className='font-rubik'>
+            <form className='font-rubik' onSubmit={this.handleSubmit}>
               <FormGroup
                 controlId='formBasicText'>
+                {/*
                 <ControlLabel>First name</ControlLabel>
                 <FormControl
                   type='text'
                   value={this.state.name.value}
                   placeholder='Elon'
                   className='mb-3 font-rubik rounded-0 c-border'
-                /* onChange={this.handleChange} */
-                />
+                /> */}
                 <ControlLabel>Email</ControlLabel>
                 <FormControl
                   type='email'
                   value={this.state.email.value}
                   placeholder='musk@tesla.com'
                   className='font-rubik rounded-0 c-border'
-                /* onChange={this.handleChange} */
+                  onChange={this.handleChange}
                 />
                 <FormControl.Feedback />
               </FormGroup>

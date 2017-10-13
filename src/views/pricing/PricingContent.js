@@ -20,10 +20,10 @@ const page = {
     }],
     features: [{
         value: 'Be faster',
-        description: 'People speak <strong>2.5</strong> faster than they type.'
+        description: 'Now you can finish tasks up to <strong>3</strong> times faster..'
     }, {
         value: 'Express yourself',
-        description: `Google's speech to text api let's you talk without worrying about Speakeasy having to understand you.`
+        description: `Google's speech to text api is rock solid, and can pick up your voice in noisy environments.`
     }, {
         value: 'Only there when you need it',
         description: `We don't listen to you're voice all the time. Just when you press <code>~</code> or your hotkey.`
@@ -45,15 +45,15 @@ market: {
     list: [{
         title: 'Slow typers',
         icon: '👵🏼',
-        description: 'If you type one key at a time, this app will rock your world.'
+        description: 'You currently type 1 key at a time, or have to look at the keyboard when you type.'
     }, {
         title: 'Power users',
         icon: '👨🏻‍💻',
-        description: 'If you want to get the most out of your time, this app will help you get things done <strong>2.5</strong> times faster.'
+        description: 'You want to squeeze every bit of productivity out of your time at your computer.'
     }, {
         title: 'Gamers',
         icon: '👩🏼‍🚀',
-        description: `It's hard enough to type and play games at the same time. Let Speakeasy do the heavy typing for you.`
+        description: `You really want to communicate with your team, but it takes way to long to type.`
     }],
     popUp: {
         title: 'Thanks your interest in Speakeasy', 

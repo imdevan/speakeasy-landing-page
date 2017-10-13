@@ -61,12 +61,12 @@ class Home extends React.Component {
             </Col>
             <Col sm={12} md={8} lg={6} className='h-100'>
               <div className='p-4'>
-                <h3 className='font-title'>
-                  {feature.title}
-                </h3>
-                <p>
-                  {feature.description}
-                </p>
+                <h3 className='font-title'
+                      dangerouslySetInnerHTML={{ __html: feature.title}}
+                  />
+                <p 
+                      dangerouslySetInnerHTML={{ __html: feature.description}}
+                  />
               </div>
             </Col>
           </Row>

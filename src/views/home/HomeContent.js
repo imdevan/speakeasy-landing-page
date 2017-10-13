@@ -9,7 +9,7 @@ import bisonStudioImage from '../../assets/images/logos/bison.svg';
 
 
 const page = {
-  title: 'Speakeasi',
+  title: 'Speakeasy',
   subtitle: `Speech to text for your desktop.<br/>Finally.`,
   features: [{
     title: 'Speech to text on your desktop',
@@ -21,15 +21,15 @@ const page = {
     image: macOverlayImage
   }, {
     title: 'Works with windows too ❤️',
-    description: 'Speakeasi can make or break your teams game, we see you gamers.',
+    description: 'Speakeasy can make or break your teams game, we see you gamers.',
     image: windowsImage
   }, {
     title: 'Get things done, faster',
-    description: 'Speakeasi can make or break your teams game, we see you gamers.',
+    description: 'Speakeasy can make or break your teams game, we see you gamers.',
     image: windowsImage
   }, {
     title: 'Works with video games too',
-    description: 'Speakeasi can make insanely easy to communicate with your team.',
+    description: 'Speakeasy can make insanely easy to communicate with your team.',
     image: overwatchImage
   }],
   valueProp: {
@@ -50,7 +50,7 @@ const page = {
     image: firebaseImage
   }],
   finalSell: {
-    title: 'Want to try Speakeasi for free?',
+    title: 'Want to try Speakeasy for free?',
     description: 'Get your free trial, by clicking below 👇',
     cta: 'Yes, please!'
   },

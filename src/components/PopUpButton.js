@@ -81,7 +81,7 @@ class PopUpButton extends React.Component {
   render() {
     const { className, linkClassName, children, label, title,
       titleClassName, description, disabled, maxWidth, ui, id, sm, md } = this.props;
-    const open = ui.popUp[id] && ui.popUp[id].open;
+    const open = ui.popUp && ui.popUp[id] && ui.popUp[id].open;
 
     // if(!open) 
     // console.log(ui)

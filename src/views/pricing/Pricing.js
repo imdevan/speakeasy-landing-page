@@ -3,7 +3,15 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as uiActions from '../../actions/uiActions';
 
-import { Grid, Row, Col } from 'react-bootstrap';
+import { 
+  Grid, 
+  Row, 
+  Col,
+  FormGroup, 
+  ControlLabel,
+  FormControl,
+  HelpBlock
+} from 'react-bootstrap';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightTheme from '../../config/lightTheme';
@@ -63,13 +71,27 @@ class PricingPage extends React.Component {
         </Row>
         <Row>
           <Col sm={12}>
-            <TextField
-              type='text'
-              onChange={() => {}}
-              value={this.state.email}
-              fullWidth={true}
-              floatingLabelText='First name'
-            />
+            <form>
+              <FormGroup
+                controlId='formBasicText'>
+                <ControlLabel>First name</ControlLabel>
+                <FormControl
+                  type='text'
+                  value={this.state.value}
+                  placeholder='Elon'
+                  className='mb-3'
+                  /* onChange={this.handleChange} */
+                />
+                <ControlLabel>Email</ControlLabel>
+                <FormControl
+                  type='email'
+                  value={this.state.value}
+                  placeholder='musk@tesla.com'
+                  /* onChange={this.handleChange} */
+                />
+                <FormControl.Feedback />
+              </FormGroup>
+            </form>
           </Col>
         </Row>
         <Row>

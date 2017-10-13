@@ -71,7 +71,7 @@ class PricingPage extends React.Component {
         </Row>
         <Row>
           <Col sm={12}>
-            <form>
+            <form className='font-rubik'>
               <FormGroup
                 controlId='formBasicText'>
                 <ControlLabel>First name</ControlLabel>
@@ -79,7 +79,7 @@ class PricingPage extends React.Component {
                   type='text'
                   value={this.state.value}
                   placeholder='Elon'
-                  className='mb-3'
+                  className='mb-3 font-rubik'
                   /* onChange={this.handleChange} */
                 />
                 <ControlLabel>Email</ControlLabel>
@@ -87,29 +87,22 @@ class PricingPage extends React.Component {
                   type='email'
                   value={this.state.value}
                   placeholder='musk@tesla.com'
+                  className='font-rubik'
                   /* onChange={this.handleChange} */
                 />
                 <FormControl.Feedback />
+              </FormGroup>
+              <FormGroup>
+                <button type="submit" 
+                  className="btn btn-primary btn-lg font-title w-100 c-pointer">
+                  Sign me up
+                </button>
               </FormGroup>
             </form>
           </Col>
         </Row>
         <Row>
-          <Col sm={12} className='mb-3'>
-            <TextField
-              type='email'
-              onChange={() => {}}
-              value={this.state.email}
-              fullWidth={true}
-              floatingLabelText='Email'
-            />
-          </Col>
-        </Row>
-        <Row>
           <Col sm={12}>
-            <span className='btn btn-primary font-title w-100 c-pointer'>
-              Sign me up! 
-            </span>
           </Col>
         </Row>
       </div>
@@ -120,7 +113,7 @@ class PricingPage extends React.Component {
     const {pricing} = page;
     if(pricing)
       return (
-        <div className='c-shadow-lg c-bg-white'>
+        <div className='c-shadow-lg c-bg-fff'>
         <Row className='flex-column flex-md-row'>
           {pricing.map((price, i) => (
             <Col key={i} sm={12} md={12/pricing.length}>

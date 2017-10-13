@@ -64,7 +64,7 @@ export default class TopNav extends React.Component {
             size={24} />
       </div>
     );
-    // ${/*' fixed-top  c-bg-white c-shadow-sm'*/ }
+    // ${/*' fixed-top  c-bg-fff c-shadow-sm'*/ }
   return (
     <div className={` w-100`}>
       <Grid>

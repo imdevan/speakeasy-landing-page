@@ -6,11 +6,7 @@ import * as uiActions from '../../actions/uiActions';
 import { 
   Grid, 
   Row, 
-  Col,
-  FormGroup, 
-  ControlLabel,
-  FormControl,
-  HelpBlock
+  Col
 } from 'react-bootstrap';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -22,6 +18,7 @@ import ReactMarkdown from 'react-markdown';
 import page from './PricingContent';
 import Band from '../../components/Band';
 import HalfBG from '../../components/HalfBG';
+import BetaOffer from '../../components/BetaOffer';
 import Footer from '../../components/Footer';
 import PopUpButton from '../../components/PopUpButton';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -42,72 +39,12 @@ class PricingPage extends React.Component {
     this.renderIntegrations = this.renderIntegrations.bind(this);
     this.renderFeatures = this.renderFeatures.bind(this);
     this.renderMarketSell = this.renderMarketSell.bind(this);
-    this.renderPopUpButton = this.renderPopUpButton.bind(this);
   }
 
   componentDidMount() {
     scrollToTop();
   }
 
-  renderPopUpButton() {
-    return <PopUpButton
-      id='pricing-page'
-      label='Try free for 14 days'
-      linkClassName='font-title c-cta c-pointer h3'
-      sm={12} md={6}>
-      <div className='text-left'>
-        <Row>
-          <Col sm={12}>
-            <h2 className='font-title'
-              dangerouslySetInnerHTML={{ __html: project.prereleaseOffer.title }} />
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12}>
-            <p>
-              {project.prereleaseOffer.description}
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12}>
-            <form className='font-rubik'>
-              <FormGroup
-                controlId='formBasicText'>
-                <ControlLabel>First name</ControlLabel>
-                <FormControl
-                  type='text'
-                  value={this.state.value}
-                  placeholder='Elon'
-                  className='mb-3 font-rubik'
-                  /* onChange={this.handleChange} */
-                />
-                <ControlLabel>Email</ControlLabel>
-                <FormControl
-                  type='email'
-                  value={this.state.value}
-                  placeholder='musk@tesla.com'
-                  className='font-rubik'
-                  /* onChange={this.handleChange} */
-                />
-                <FormControl.Feedback />
-              </FormGroup>
-              <FormGroup>
-                <button type="submit" 
-                  className="btn btn-primary btn-lg font-title w-100 c-pointer">
-                  Sign me up
-                </button>
-              </FormGroup>
-            </form>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12}>
-          </Col>
-        </Row>
-      </div>
-    </PopUpButton>
-  }
   
   renderPricing() {
     const {pricing} = page;
@@ -131,13 +68,7 @@ class PricingPage extends React.Component {
                   </p>
                 )}
                 {price.cta && (
-                  this.renderPopUpButton()
-                  // <a className='align-self-end typeform-share c-cta h5  mx-auto font-title'
-                  //   href='https://bisonstudio.typeform.com/to/HjPCvy'
-                  //   data-mode='popup'
-                  //   target='_blank'>
-                  //     {price.cta}
-                  // </a>
+                  <BetaOffer />
                 )}
                 </div>
               </div>
@@ -179,7 +110,7 @@ class PricingPage extends React.Component {
       return integrations.map((integration, i) => (
         <Row key={i} className={`flex-column flex-md-row ${i < integrations.length - 1 ? 'mb-5 mb-md-5' : ''}`}>
           <Col sm={3} md={3}>
-            <div className='w-100 d-flex justify-md-content-center align-items-center justify-content-start'>
+            <div className='w-100 d-flex justify-md-content-center align-items-center justify-content-start mb-5 mb-md-0'>
               <img style={{width: 150}} src={integration.image} />
             </div>
           </Col>
@@ -268,11 +199,7 @@ class PricingPage extends React.Component {
           {this.renderMarketSell()}
         </Band>
         <Band className='text-center'>
-          {/* <a className='typeform-share font-title c-cta'
-            href='https://bisonstudio.typeform.com/to/xirpXA'
-            data-mode='popup'
-            target='_blank'>Try Speakeasy for Free</a> */}
-            {this.renderPopUpButton()}
+          <BetaOffer />
         </Band>
         <Footer />
         </ReactCSSTransitionGroup>

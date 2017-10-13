@@ -1,4 +1,7 @@
-$cta-color: $white;
+$cta-color: $dark-gray;
+$cta-border: 3px solid $dark-gray;
+$cta-accent: $blue;
+$translate-val: 4px;
 
 .c-cta {
     @extend .p-4;
@@ -6,30 +9,53 @@ $cta-color: $white;
     @include trans();
     position: relative;
     display: inline-block;
-    // background: linear-gradient(to top right, $blue, $purple);
-    background: $dark-gray;
-    box-shadow: shadow(); 
     color: $cta-color;
-    transform: skewY(0deg) !important;;
+    background: $cta-accent;
+    // background: linear-gradient(to top right, $blue, $purple);
     text-shadow: none; 
-    text-decoration: none;
-    
-    &:hover {
-        transform: skewY(-8deg) !important;;
-        color: $cta-color;
-        text-decoration: none !important;
-        // text-shadow: shadow(sm); 
-    }  
+    text-decoration: none !important;
+    z-index: 1;
+    transform: translate($translate-val, $translate-val);
+    // box-shadow: shadow();
+    border: none;
+
     &:active, &:focus {
-        transform: skewY(0deg) !important;;
-        @include trans(null, fast);
-        text-decoration: none !important;
-        // text-decoration: none;
+      transform: translate(0, $translate-val) !important;
+      color: $cta-color !important;
+      background: $cta-accent !important;
+      &::after {
+          @include trans(null, fast);
+          text-decoration: none !important;
+          transform: translate(0, 0) !important;
+      }
     }
+
+    &:hover {
+        text-decoration: none !important;
+        color: $cta-color;
+        transform: translate(0, 0);
+
+        &::after {
+            transform: translate(0, 0);
+        }
+    }  
     &:visited {
         color: $cta-color;
     }
-    &::after, &::before {
+    &::before {
         content: none;
+    }
+    &::after {
+        @include trans();
+        
+        content: '';
+        display: block;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        transform: translate(-$translate-val*2, -$translate-val*2);
+        border: $cta-border;
     }
 }

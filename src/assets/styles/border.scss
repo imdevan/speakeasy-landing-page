@@ -1,0 +1,8 @@
+$border: 3px solid $dark-gray;
+
+.c-border {
+  border: $border;
+}
+.form-control:focus {
+  border-color: $blue;
+}

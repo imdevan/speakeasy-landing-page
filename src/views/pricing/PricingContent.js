@@ -10,13 +10,13 @@ const page = {
         type: 'Monthly',
         price: monthlyCost,
         symbol: 'mo',
-        cta: 'Try free for 14 days'
+        cta: 'Free during beta'
     }, {
         type: 'Yearly',
         price: yearCost,
         symbol: 'yr',
         upsell: `*save $${(monthlyCost * 12) - yearCost}`,
-        cta: 'Try free for 14 days'
+        cta: 'Free during beta'
     }],
     features: [{
         value: 'Be faster',

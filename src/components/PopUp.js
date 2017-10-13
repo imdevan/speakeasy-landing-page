@@ -27,7 +27,7 @@ class PopUp extends React.Component {
   render() {
     const { children, sm, md } = this.props;
     const popUpContainerClass = 'fixed-top w-100 h-100 z-2 c-bg-shadow d-flex align-items-center';
-    const popUpBodyClass = 'c-bg-fff p-4 z-max c-shadow-lg rounded';
+    const popUpBodyClass = 'c-bg-fff p-4 z-max c-shadow-lg';
 
     return (
       <div className={`${popUpContainerClass}`} onClick={this.closePopUp}>

@@ -15,6 +15,7 @@ import BackLink from '../../components/BackLink';
 import PostCard from '../../components/PostCard';
 import Footer from '../../components/Footer';
 import Svg from '../../components/Svg';
+import BetaOffer from '../../components/BetaOffer';
 import page from './HomeContent';
 
 import defaultTheme from '../../config/theme';
@@ -161,14 +162,9 @@ class Home extends React.Component {
                       <p>
                         {page.finalSell.description}
                       </p>
-                      <p className='text-center mt-5'>
-                        {/* <CTA to=''  */}
-                          {/* label='Get your FREE ticket' /> */}
-                          <a className="typeform-share c-cta font-title" 
-                            href="https://bisonstudio.typeform.com/to/HjPCvy" 
-                            data-mode="popup" 
-                            target="_blank">{page.finalSell.cta}</a>
-                      </p>
+                      <div className='text-center mt-5'>
+                        <BetaOffer label='Yes, Please!'/>
+                      </div>
                     </Col>
                   </Row>
                 </Grid>

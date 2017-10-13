@@ -1,0 +1,11 @@
+.c {
+  &-relative {
+    position: relative;
+  }
+  &-absolute {
+    position: absolute;
+  }
+  &-pb-0 {
+    bottom: 0;
+  }
+}

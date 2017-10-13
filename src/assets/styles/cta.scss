@@ -1,0 +1,35 @@
+$cta-color: $white;
+
+.c-cta {
+    @extend .p-4;
+    // @extend .h1;
+    @include trans();
+    position: relative;
+    display: inline-block;
+    // background: linear-gradient(to top right, $blue, $purple);
+    background: $dark-gray;
+    box-shadow: shadow(); 
+    color: $cta-color;
+    transform: skewY(0deg) !important;;
+    text-shadow: none; 
+    text-decoration: none;
+    
+    &:hover {
+        transform: skewY(-8deg) !important;;
+        color: $cta-color;
+        text-decoration: none !important;
+        // text-shadow: shadow(sm); 
+    }  
+    &:active, &:focus {
+        transform: skewY(0deg) !important;;
+        @include trans(null, fast);
+        text-decoration: none !important;
+        // text-decoration: none;
+    }
+    &:visited {
+        color: $cta-color;
+    }
+    &::after, &::before {
+        content: none;
+    }
+}

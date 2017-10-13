@@ -1,0 +1,14 @@
+$backgrounds: (
+  light-gray: $light-gray,
+  white: $white,
+  gray: $gray,
+  shadow: rgba($dark-gray, .6)
+);
+
+.c-bg {
+  @each $bg, $bg-val in $backgrounds {
+    &-#{$bg} {
+      background: $bg-val;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.c-article {
+  &-body {
+    p {
+      margin-bottom: 1.5rem;
+    }
+    h1, h3 {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    figure {
+      max-width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      img {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+    figcaption {
+      margin: auto;
+      color: $gray;
+      text-align: center;
+      font-size: .75em;
+      margin-top: .5rem;  
+    }
+    img {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      max-width: 100%;  
+      height: auto;
+      box-shadow: shadow(lg);
+    }
+    .aligncenter{ 
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .alignright {
+      float: right;
+    }
+  }
+}

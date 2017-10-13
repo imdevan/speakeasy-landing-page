@@ -5,6 +5,10 @@ const project = {
   prereleaseOffer: {
     title: 'Thanks for your interest in Speakeasy',
     description: `Leave your email and I'll send you an email when we launch.`,
+  },
+  timedOffer: {
+    title: 'Thanks for your interest in Speakeasy',
+    description: `Sign up to hear when we release now, and get a month free after your trial `,
   }
 }
 

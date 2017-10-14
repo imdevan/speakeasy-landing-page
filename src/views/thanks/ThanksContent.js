@@ -2,10 +2,14 @@ const page = {
     title: 'Thank You!',
     subTitle: 'You rock',
     description: `
-It means a lot to me that you are interested in our product.
+You totally rock! Please give yourself a massive high five!
 
-Share this link and get a **free month (after the beta) for each friend that signs up**. 
-`
+Thanks again for your support, you're free to resume looking at cat gifs. 
+`,
+cta: {
+    label: 'Take me to cat gifs! <br/><br/>😻',
+    link: 'https://imgur.com/r/catgifs'
+}
 }
 
 export default page

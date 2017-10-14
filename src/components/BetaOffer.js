@@ -98,7 +98,7 @@ class BetaOffer extends Component {
               <FormGroup>
                 <button type="submit"
                   className="c-cta font-title w-100 c-pointer">
-                  Thanks, let me know 🙏
+                  Let's do this 🚀
                 </button>
               </FormGroup>
             </form>

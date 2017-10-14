@@ -63,11 +63,8 @@ class AboutPage extends React.Component{
       transitionAppearTimeout={1000}
       transitionLeaveTimeout={300}
       transitionEnter={false}>
-        <Band>
-            <h1 className='display-3 mb-5'>
-              <img src={headerImage}
-                className='c-drop-shadow-sm' />
-            </h1>
+        <Band sm={8} md={4}>
+          <div className='p-4 c-bg-fff c-shadow-lg'>
             <h1 className='font-title mb-5'>
                 {thanksContent.title}
             </h1>
@@ -76,9 +73,18 @@ class AboutPage extends React.Component{
               source={thanksContent.description} />
             <Row>
               <Col sm={12} className='text-center'>
-                <BetaOffer label='Share with a friend' />
+                <h3>
+                  <a className='c-cta font-title ' 
+                    href={thanksContent.cta.link} 
+                    target='_blank'
+                    dangerouslySetInnerHTML={{ 
+                      __html: thanksContent.cta.label 
+                      }}
+                    />
+                </h3>
               </Col>
             </Row>
+          </div>
           </Band>
         <Footer />
         </ReactCSSTransitionGroup>

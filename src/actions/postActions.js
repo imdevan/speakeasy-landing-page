@@ -1,7 +1,9 @@
 import * as constants from './actionTypes';
 import * as ui from './uiActions';
-import {apiUrl} from '../config/config';
+// import {apiUrl} from '../config/config';
 import Axios from '../config/axios';
+
+const apiUrl = '/api';
 
 export function successRequestingPosts(response){
   return { type: constants.ADD_POSTS, posts: response.data};

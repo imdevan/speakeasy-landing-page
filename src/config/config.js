@@ -1,4 +1,4 @@
-const apiUrl = 'https://bisonstudio.imdevan.com/wp-json/wp/v2';
+const apiUrl = process.env.API_URL;
 export {
   apiUrl
 }

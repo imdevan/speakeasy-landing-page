@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import * as uiActions from '../actions/uiActions';
+import * as mailchimpActions from '../actions/mailchimpActions';
 import project from '../config/project';
 import PopUpButton from './PopUpButton';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 import {
   Grid,
@@ -53,8 +55,11 @@ class BetaOffer extends Component {
   }
 
   handleSubmit(e) {
-    const {history} = this.props;
+    const { history, mailchimp_actions } = this.props;
+    const {email} = this.state;
+
     e.preventDefault();
+    mailchimp_actions.requestAddMailchimpSubscriber(email.value, 'thanks')
     history.push('/thanks')
   }
 
@@ -109,4 +114,10 @@ class BetaOffer extends Component {
   }
 }
 
-export default withRouter(BetaOffer);
+function mapDispatchToProps(dispatch) {
+  return {
+    mailchimp_actions: bindActionCreators(mailchimpActions, dispatch)
+  };
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(BetaOffer));

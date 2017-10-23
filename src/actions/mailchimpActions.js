@@ -2,7 +2,8 @@ import * as constants from './actionTypes';
 import * as ui from './uiActions';
 
 import Axios from '../config/axios';
-import {apiUrl} from '../config/config';
+// import {apiUrl} from '../config/config';
+const apiUrl = '/api';
 
 export function successRequestingSubscribers(response){
   return { type: constants.SUBSCRIBER_COUNT, subscribers: response.data.response};

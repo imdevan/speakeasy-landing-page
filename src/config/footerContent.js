@@ -5,11 +5,8 @@ const footerContent = {
             link: '/about',
             label: 'About'
         },{
-            link: '/referrals',
-            label: 'Referrals'
-        },{
-            link: '/blog',
-            label: 'Blog'
+            link: 'https://bisonstudio.co',
+            label: 'Bison Studio'
         }]
     },{
         title: 'Social Media',

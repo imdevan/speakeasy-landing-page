@@ -14,7 +14,6 @@ import headerImage from '../../assets/images/logos/studio-microphone.png';
 
 import thanksContent from './ThanksContent';
 import Footer from '../../components/Footer';
-import BetaOffer from '../../components/BetaOffer';
 import Band from '../../components/Band';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import scrollToTop from '../../utils/scrollToTop';
@@ -63,7 +62,7 @@ class AboutPage extends React.Component{
       transitionAppearTimeout={1000}
       transitionLeaveTimeout={300}
       transitionEnter={false}>
-        <Band sm={8} md={4}>
+        <Band sm={8} md={6} lg={4}>
           <div className='p-4 c-bg-fff c-shadow-lg'>
             <h1 className='font-title mb-5'>
                 {thanksContent.title}

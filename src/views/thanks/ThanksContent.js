@@ -2,12 +2,12 @@ const page = {
     title: 'Thank You!',
     subTitle: 'You rock',
     description: `
-You totally rock! Please give yourself a massive high five!
+You rock!
 
-Thanks again for your support, you're free to resume looking at cat gifs. 
+We sent you an email, have a great day!
 `,
 cta: {
-    label: 'Take me to cat gifs! <br/><br/>😻',
+    label: 'You are free to resume looking at cat gifs',
     link: 'https://imgur.com/r/catgifs'
 }
 }

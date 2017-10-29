@@ -58,6 +58,10 @@ market: {
     popUp: {
         title: 'Thanks your interest in Speakeasy', 
         description: `I'm hard at working making sure that Speakeasy, makes speech to text easy for you. To hear when we launch leave your name and email 😉`
+    },
+    offer: {
+        reference: 'paricing-page',
+        funnel: 'beta-tester'
     }
 }}
 

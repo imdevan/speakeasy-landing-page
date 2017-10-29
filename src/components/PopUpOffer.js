@@ -18,26 +18,27 @@ import {
   HelpBlock
 } from 'react-bootstrap';
 
-class BetaOffer extends Component {
+class PopUpOffer extends Component {
   static propTypes = {
     label: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    options: PropTypes.object,
+    reference : PropTypes.string,
+    funnel: PropTypes.string
   };
 
   static defaultProps = {
     label: 'Free during beta',
     className: '',
+    reference: 'website',
+    funnel: 'unkown'
   };
   
   constructor(props, context) {
     super(props, context);
     this.state = {
-      email: {
-        value: ''
-      },
-      name: {
-        value: ''
-      }
+      email: { value: '' },
+      name: { value: '' }
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -45,26 +46,28 @@ class BetaOffer extends Component {
   }
   
 
-  handleChange(e) {
+  handleChange(e, field) {
     console.log(e);
+
     this.setState({
-      email: {
+      [field]: {
         value: e.target.value
       }
     });
   }
 
   handleSubmit(e) {
-    const { history, mailchimp_actions } = this.props;
+    const {history, mailchimp_actions, reference, funnel} = this.props;
     const {email} = this.state;
 
     e.preventDefault();
-    mailchimp_actions.requestAddMailchimpSubscriber(email.value, 'thanks')
+    mailchimp_actions.requestAddMailchimpSubscriber(email.value, name.value, reference, funnel)
     history.push('/thanks')
   }
 
   render() {
     const { className, label } = this.props;
+    const {history, mailchimp_actions, reference, funnel} = this.props;
 
     return <PopUpButton
       id='pricing-page'
@@ -88,16 +91,29 @@ class BetaOffer extends Component {
         <Row>
           <Col sm={12}>
             <form className='font-rubik' onSubmit={this.handleSubmit}>
+
               <FormGroup
-                controlId='formBasicText'>
+                controlId='formBasicText' className='mb-4' >
+              <ControlLabel>Name</ControlLabel> 
+                < FormControl
+                  type = 'text'
+                  value = {
+                    this.state.name.value
+                  }
+                  placeholder = 'Elon'
+                  className = 'font-rubik rounded-0 c-border mb-3'
+                  onChange = {
+                    e => this.handleChange(e, 'name')
+                  } />
                 <ControlLabel>Email</ControlLabel>
                 <FormControl
                   type='email'
                   value={this.state.email.value}
                   placeholder='musk@tesla.com'
-                  className='font-rubik rounded-0 c-border'
-                  onChange={this.handleChange}
-                />
+                  className = 'font-rubik rounded-0 c-border'
+                  onChange = {
+                    e => this.handleChange(e, 'email')
+                  } />
                 <FormControl.Feedback />
               </FormGroup>
               <FormGroup>
@@ -120,4 +136,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(BetaOffer));
+export default connect(null, mapDispatchToProps)(withRouter(PopUpOffer));

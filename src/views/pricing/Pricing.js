@@ -18,7 +18,7 @@ import ReactMarkdown from 'react-markdown';
 import page from './PricingContent';
 import Band from '../../components/Band';
 import HalfBG from '../../components/HalfBG';
-import BetaOffer from '../../components/BetaOffer';
+import PopUpOffer from '../../components/PopUpOffer';
 import Footer from '../../components/Footer';
 import PopUpButton from '../../components/PopUpButton';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -47,7 +47,7 @@ class PricingPage extends React.Component {
 
   
   renderPricing() {
-    const {pricing} = page;
+    const {pricing, offer} = page;
     if(pricing)
       return (
         <div className='c-shadow-lg c-bg-fff'>
@@ -68,7 +68,7 @@ class PricingPage extends React.Component {
                   </p>
                 )}
                 {price.cta && (
-                  <BetaOffer />
+                  <PopUpOffer {...offer} />
                 )}
                 </div>
               </div>
@@ -171,6 +171,7 @@ class PricingPage extends React.Component {
   }
 
   render(){
+    const {offer} = page;
     return <MuiThemeProvider muiTheme={getMuiTheme(lightTheme)} >
       <div>
         
@@ -199,7 +200,7 @@ class PricingPage extends React.Component {
           {this.renderMarketSell()}
         </Band>
         <Band className='text-center'>
-          <BetaOffer />
+          <PopUpOffer {...offer} />
         </Band>
         <Footer />
         </ReactCSSTransitionGroup>

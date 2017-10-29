@@ -16,7 +16,7 @@ import PostCard from '../../components/PostCard';
 import Footer from '../../components/Footer';
 import Svg from '../../components/Svg';
 import Band from '../../components/Band';
-import BetaOffer from '../../components/BetaOffer';
+import PopUpOffer from '../../components/PopUpOffer';
 import page from './HomeContent';
 
 import defaultTheme from '../../config/theme';
@@ -32,13 +32,18 @@ class Home extends React.Component {
   constructor(props, context){
     super(props, context);
 
+    this.state = {
+      offer: {
+        reference: 'home-page',
+        funnel: 'beta-tester'
+      }
+    };
+
     this.renderFeatures = this.renderFeatures.bind(this);
     this.renderIntegrations = this.renderIntegrations.bind(this);
   }
   componentWillMount(){
-    const {post_actions, page_actions} = this.props;
-    post_actions.requestAllPosts();
-    page_actions.requestAllPages();
+
   }
   
   componentDidMount() {
@@ -90,6 +95,7 @@ class Home extends React.Component {
   }
   
   render(){
+    const {offer} = this.state;
     return(
       <MuiThemeProvider muiTheme={getMuiTheme(defaultTheme)}>
           <div>
@@ -124,7 +130,7 @@ class Home extends React.Component {
                   </Row>
                   <Row>
                     <Col sm={12} className='text-center'>
-                      <BetaOffer label='Try the beta for free'/>
+                      <PopUpOffer {...offer} label='Try the beta for free'/>
                     </Col>
                   </Row>
                 </Grid>
@@ -169,7 +175,7 @@ class Home extends React.Component {
                         {page.finalSell.description}
                       </p>
                       <div className='text-center mt-5'>
-                        <BetaOffer label='Yes, Please!'/>
+                        <PopUpOffer {...offer} label='Yes, Please!'/>
                       </div>
                     </Col>
                   </Row>

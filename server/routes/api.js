@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 var axios = require('axios');
 var _ = require('lodash');
+var mailchimp = require('../services/mailchimp');
 
 router.use(function(req, res, next) {
   // CORS headers
@@ -116,49 +117,56 @@ router.get('/categories', function(req, res, next){
 // MAILCHIMP API CALLS
 // ====================
 // RETURN SUBSCRIBER COUNT
-router.get('/subscribers', function(req, res, next){
-	axios({
-    method: 'get',
-    url: 'https://' + process.env.MAILCHIMP_INSTANCE + '.api.mailchimp.com/3.0/lists/' + process.env.MAILCHIMP_LISTID + '/members/',
-    auth: {
-      username: process.env.MAILCHIMP_USERNAME,
-      password: process.env.MAILCHIMP_KEY
-    }
-  }).then(function (response) {
-    return res.status(200).json({response: response.data})
+router.get('/subscribers', function (req, res, next) {
+    axios({
+        method: 'get',
+        url: 'https://' + process.env.MAILCHIMP_INSTANCE + '.api.mailchimp.com/3.0/lists/' + process.env.MAILCHIMP_LISTID + '/members/',
+        auth: {
+          username: process.env.MAILCHIMP_USERNAME,
+          password: process.env.MAILCHIMP_KEY
+        }
+      }).then(function (response) {
+      return res
+        .status(200)
+        .json({response: response.data})
+    })
+      .catch(function (error) {
+        return res.json(200, {response: error.response.data})
+      });
   })
-  .catch(function (error) {
-    return res.json(200, {response: error.response.data})
-  });
-})
 
 // https://us12.api.mailchimp.com/playground/?_ga=1.264998671.1447638105.1490985646
-router.post('/subscribers', function(req,res,next){
-	var params = _.extend(req.query || {}, req.params || {}, req.body || {});
-  axios({
-    method: 'post',
-    url: 'https://' + process.env.MAILCHIMP_INSTANCE + '.api.mailchimp.com/3.0/lists/' + process.env.MAILCHIMP_LISTID + '/members/',
-    auth: {
-      username: process.env.MAILCHIMP_USERNAME,
-      password: process.env.MAILCHIMP_KEY
-    },
-    data: {
-      email_address: params.email,
-      status: 'subscribed',
-      'interests': {
+router
+  .post('/subscribers', function (req, res, next) {
+    var params = _.extend(req.query || {}, req.params || {}, req.body || {});
+    axios({
+      method: 'post',
+      url: 'https://' + process.env.MAILCHIMP_INSTANCE + '.api.mailchimp.com/3.0/lists/' + process.env.MAILCHIMP_LISTID + '/members/',
+      auth: {
+        username: process.env.MAILCHIMP_USERNAME,
+        password: process.env.MAILCHIMP_KEY
       },
-      'merge_fields': {
-        'REF': params.reference,
-        'IPADDRESS': req.ip
-      }
-    }
-  }).then(function (response) {
-    return res.status(200).json({response: response.data})
+      data: {
+        email_address: params.email,
+        status: params.status || 'subscribed',
+        'interests': {},
+          'merge_fields': {
+            'FNAME': params.name,
+            'REF': params.reference,
+            'FUNNEL': params.funnel,
+            'IPADDRESS': req.ip
+          }
+        }
+      })
+      .then(function (response) {
+        return res
+          .status(200)
+          .json({response: response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+        return res.json(400, {response: error.response.data})
+      });
   })
-  .catch(function (error) {
-    console.log(error);
-    return res.json(400, {response: error.response.data})
-  });
-})
 
 module.exports = router

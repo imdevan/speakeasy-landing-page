@@ -29,7 +29,7 @@ export function requestMailchimpSubscribers(){
   }
 }
 
-export function requestAddMailchimpSubscriber(email, ref){
+export function requestAddMailchimpSubscriber(email, name, reference, funnel) {
   return function(dispatch){
     dispatch(ui.loadingChanged(true));
 
@@ -38,8 +38,10 @@ export function requestAddMailchimpSubscriber(email, ref){
       method: 'post',
       url: requestUrl,
       data: {
-        email: email,
-        reference: ref
+        email,
+        name,
+        reference,
+        funnel
       }
     }).then(
       response => dispatch(successRequestingAddSubscriber(response))
